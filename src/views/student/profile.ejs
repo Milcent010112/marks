@@ -1,0 +1,77 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/student') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/student') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>My Profile</h1>
+            </div>
+            <main class="profile flex">
+                <div class="profile__photo-container">
+                    <div class="profile__photo-container__photo image--back image--round" style="background-image: url('/assets/up/profiles/<%= studentDetails.photo %>');"></div>
+                    <label class="btn btn--primary" for="change-photo" style="display: block; margin-top: 2rem;">Change photo</label>
+                    <input type="file" id="change-photo" multiple hidden>
+                </div>
+                <div class="profile__details">
+                    <div class="card">
+                        <div class="card__header">
+                            <h4>General details</h4>
+                        </div>
+                        <div class="card__body">
+                            <div class="twin-inputs flex flex--j-space-between">
+                                <div class="input-wrapper">
+                                    <label for="student-first-name">First name</label>
+                                    <input type="text" id="student-first-name" class="input-wrapper__input" placeholder="e.g. John" value="<%= studentDetails.firstname %>">
+                                </div>
+                                <div class="input-wrapper">
+                                    <label for="student-last-name">Last name</label>
+                                    <input type="text" id="student-last-name" class="input-wrapper__input" placeholder="e.g. Miers" value="<%= studentDetails.lastname %>">
+                                </div>
+                            </div>
+                            <div class="twin-inputs flex flex--j-space-between">
+                                <div class="input-wrapper">
+                                    <label for="student-number">Student number</label>
+                                    <input type="text" id="student-number" class="input-wrapper__input" placeholder="e.g. 12345678" value="<%= studentDetails.studentNumber %>" disabled>
+                                </div>
+                                <div class="input-wrapper">
+                                    <label for="student-email">Email address</label>
+                                    <input type="email" id="student-email" class="input-wrapper__input" placeholder="e.g. john@mier.com" value="<%= studentDetails.email %>">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card table" style="margin-top: 2rem">
+                        <div class="card__header card__header--no-border">
+                            <h4>Tutorial links</h4>
+                        </div>
+                        <div class="table__header">
+                            <ul class="table__header__row">
+                                <li class="table__header__row__item short">#</li>
+                                <li class="table__header__row__item">Module</li>
+                                <li class="table__header__row__item">Description</li>
+                                <li class="table__header__row__item last-cell">Link</li>
+                            </ul>
+                        </div>
+                        <div class="table__body" id="tutorials"></div>
+                        <div class="card__body" id="no-tutorials" style="display: none;">
+                            <div class="empty">
+                                <h4>No tutorials</h4>
+                                <p>Tutorials have not been added yet :)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</div>
+
+<script>
+    const targetPage = 'student-profile';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

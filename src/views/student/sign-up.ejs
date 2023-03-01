@@ -1,0 +1,86 @@
+<div class="admin-logger image--back" style="background-image: url('/assets/backgrounds/background-1.jpg'); height: 100vh;">
+    <div class="admin-logger__main pos--abs pos--horizontal" style="top: 3rem; width: 55rem;">
+        <div class="admin-logger__title" style="color: #fff;">
+            <h1>Welcome.</h1>
+            <p>Academic Goal Monitoring.</p>
+        </div>
+        <form class="card" id="new-student-form">
+            <div class="card__header card__header--no-border">
+                <h1>Sign up.</h1>
+            </div>
+            <div class="error-container error-container--pad" id="new-student-error">
+                <p class="error-container__p">
+                    <span class="error-container__p__exclamation">Oops.</span>
+                    <span class="error-container__p__text"></span>
+                </p>
+            </div>
+            <div class="card__body">
+                <div class="twin-inputs flex flex--j-space-between" style="margin-bottom: 0;">
+                    <div class="input-wrapper">
+                        <label for="student-first-name">First name</label>
+                        <input type="text" id="student-first-name" class="input-wrapper__input" placeholder="e.g. John">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="student-last-name">Last name</label>
+                        <input type="text" id="student-last-name" class="input-wrapper__input" placeholder="e.g. Miers">
+                    </div>
+                </div>
+                <div class="twin-inputs flex flex--j-space-between" style="margin-bottom: 0;">
+                    <div class="input-wrapper">
+                        <label for="student-number">Student number</label>
+                        <input type="text" id="student-number" class="input-wrapper__input" placeholder="e.g. 12345678">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="student-email">Email address</label>
+                        <input type="email" id="student-email" class="input-wrapper__input" placeholder="e.g. john@mier.com">
+                    </div>
+                </div>
+                <div class="twin-inputs flex flex--j-space-between" style="margin-bottom: 0;">
+                    <div class="input-wrapper">
+                        <label for="student-password">Password</label>
+                        <input type="password" id="student-password" class="input-wrapper__input" placeholder="e.g. @AnyPass123">
+                    </div>
+                    <div class="input-wrapper">
+                        <label for="student-con-password">Password confirmation</label>
+                        <input type="password" id="student-con-password" class="input-wrapper__input" placeholder="e.g. @AnyPass123">
+                    </div>
+                </div>
+                <div class="modules" style="max-height: 10rem; overflow-y: auto;">
+                    <input type="text" id="module-count" value="1" hidden>
+                    <div class="input-wrapper" id="module-item-1" >
+                        <label for="student-module-1" id="student-module-1-label">Module: 1</label>
+                        <div class="flex flex--a-center">
+                            <select id="student-module-1" class="input-wrapper__input modules__item" style="flex: 1;">
+                                <option value="select">Select</option>
+                            </select>
+                            <svg class="image--icon" style="margin-left: 1rem; fill: #b68c8c;" id="delete-item-1">
+                                <use href="#cancel"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-wrapper" style="margin-top: 1.6rem;">
+                    <label for="student-funder">Funder</label>
+                    <select id="student-funder" class="input-wrapper__input">
+                        <option value="none">None</option>
+                    </select>
+                </div>
+
+                <div class="flex">
+                    <button class="btn btn--primary">Sign up.</button>
+                    <button class="btn btn--cancel" type="button" id="add-module-item-btn">Add module</button>
+                </div>
+            </div>
+        </form>
+        <div class="flex flex--j-space-around" style="margin-top: 2rem;">
+            <p><a href="/sign-in" style="color: #fff;">Sign in instead</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const targetPage = 'student-sign-up';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

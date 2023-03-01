@@ -1,0 +1,74 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/student') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/student') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>My Goals</h1>
+            </div>
+            <div class="card table">
+                <div class="card__header card__header--no-border card__header--search">
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="table__header">
+                    <ul class="table__header__row">
+                        <li class="table__header__row__item short">#</li>
+                        <li class="table__header__row__item">Module</li>
+                        <li class="table__header__row__item last-cell">Goal</li>
+                    </ul>
+                </div>
+                <div class="table__body" id="student-goals"></div>
+                <div class="card__body" id="no-student-goals" style="display: none;">
+                    <div class="empty">
+                        <h4>No student goals</h4>
+                        <p>You have not created any goals yet :)</p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn--primary open-modal" style="margin-top: 2rem;" data-modal="new-goal">New goal</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal--closed flex--a-start flex--j-center" id="new-goal-modal">
+    <form class="modal__main" id="new-goal-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>New goal.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="new-goal">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="new-goal-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="goal-module">Module</label>
+                    <select class="input-wrapper__input" id="goal-module"></select>
+                </div>
+                <div class="input-wrapper">
+                    <label for="goal">Goal</label>
+                    <input type="number" id="goal" class="input-wrapper__input" placeholder="0">
+                </div>
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary">Add goal</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const targetPage = 'student-goals';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

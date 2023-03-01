@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <style>
+        html{
+            font-size: 40% !important;
+            padding: 5rem;
+        }
+
+        <%- css %>
+    </style>
+    
+    <title>Report of <%= studentDetails.firstname + ' ' + studentDetails.lastname %></title>
+</head>
+<body>
+    <div class="page-container">
+        <h1>Academic Progress Report</h1>
+        <p style="margin: 2rem 0;">
+            The Academic monitoring program recognizes that monitoring is an important mechanism for academic career development and
+            contribution for high-perfoming competent workforce. The program supports the University's strategic goal to retain,
+            reward, and develop its students, is endorsed by the vice-chancellor and Executive, and is funded by the University.
+            We are respectively, the academic advisor and faculty member designated to approve this form for the student named
+            below. We have reviewed the information detailed below and hereby certify that it accurately reflects both the current
+            enrollment and academic performance of the student.
+        </p>
+        <h4>Student no: <%= studentDetails.studentNumber %></h4>
+        <h4>Name: <%= studentDetails.firstname + ' ' + studentDetails.lastname %></h4>
+
+        <div class="card table" style="margin-top: 2rem;">
+            <div class="table__header">
+                <ul class="table__header__row">
+                    <li class="table__header__row__item short">#</li>
+                    <li class="table__header__row__item">Module</li>
+                    <li class="table__header__row__item">Current grade</li>
+                    <li class="table__header__row__item">Gooal</li>
+                    <li class="table__header__row__item last-cell">Goal reached (yes/no)</li>
+                </ul>
+            </div>
+            <div class="table__body" id="grades">
+                <% let formated='' , count=1; 
+                    for (moduleName in modules) {
+                        formated += `
+                        
+                        <ul class="table__body__row module-item">
+                            <li class="table__body__row__item short">${count}</li>
+                            <li class="table__body__row__item">${moduleName}</li>
+                            <li class="table__body__row__item">${modules[moduleName].finalGrade}%</li>
+                            <li class="table__body__row__item">${modules[moduleName].goal ? modules[moduleName].goal + '%' : 'Not set'}</li>
+                            <li class="table__body__row__item last-cell">${modules[moduleName].finalGrade >= modules[moduleName].goal ? 'Yes' : 'No'}</li>
+                        </ul>
+                        `;
+            
+                        count++;
+                    };
+                    %>
+                    <%- formated %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

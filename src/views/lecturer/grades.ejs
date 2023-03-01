@@ -1,0 +1,127 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/lecturer') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/lecturer') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>Grades</h1>
+            </div>
+            <div class="card table">
+                <div class="card__header card__header--no-border card__header--search">
+                    <input type="text"  id="grades-search-box" placeholder="Search grades by student first name, last name, or student number or test name">
+                </div>
+                <div class="table__header">
+                    <ul class="table__header__row">
+                        <li class="table__header__row__item short">#</li>
+                        <li class="table__header__row__item">Student number</li>
+                        <li class="table__header__row__item">Last name</li>
+                        <li class="table__header__row__item">Test</li>
+                        <li class="table__header__row__item">Grade</li>
+                        <li class="table__header__row__item last-cell">Status</li>
+                    </ul>
+                </div>
+                <div class="table__body" id="students-grades"></div>
+                <div class="card__body" id="no-student-grades" style="display: none;">
+                    <div class="empty">
+                        <h4>No student grades</h4>
+                        <p>You have not graded any students yet :)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="modal modal--closed flex--a-start flex--j-center" id="new-grade-modal">
+    <form class="modal__main" id="new-grade-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>New grade.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="new-grade">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="new-grade-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="student-number">Student number</label>
+                    <input type="number" id="student-number" class="input-wrapper__input" placeholder="21830566">
+                </div>
+                <div class="input-wrapper">
+                    <label for="test-grade">Test grade</label>
+                    <input type="number" id="test-grade" class="input-wrapper__input" placeholder="e.g. 50">
+                </div>
+            </div>
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper" id="module-item-1">
+                    <label for="test-id" id="test-id-label">Test</label>
+                    <div class="flex flex--a-center">
+                        <select id="test-id" class="input-wrapper__input modules__item" style="flex: 1;">
+                            <option value="select">Select</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary">Add grade</button>
+            <button class="btn btn--cancel" type="button" id="add-grade-item-btn">Add module</button>
+        </div>
+    </form>
+</div> -->
+
+<div class="modal modal--closed flex--a-start flex--j-center" id="edit-grade-modal">
+    <form class="modal__main" id="edit-grade-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>edit grade.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="edit-grade">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="edit-grade-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="edt-student-number">Student number</label>
+                    <input type="number" id="edt-student-number" class="input-wrapper__input" placeholder="21830566" disabled>
+                </div>
+                <div class="input-wrapper">
+                    <label for="edt-test-name">Test name</label>
+                    <input type="text" id="edt-test-name" class="input-wrapper__input" placeholder="e.g. 50" disabled>
+                </div>
+            </div>
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="edt-test-grade">Test grade</label>
+                    <input type="number" id="edt-test-grade" class="input-wrapper__input" placeholder="e.g. 50">
+                </div>
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary" id="update-grade-btn">Edit grade</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const targetPage = 'lecturer-grades';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

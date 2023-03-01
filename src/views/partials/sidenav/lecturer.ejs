@@ -1,0 +1,55 @@
+<div class="sidenav">
+    <div class="sidenav__header">
+        <h1 class="flex flex--a-center">
+            <span class="image--round image--back" style="width: 5rem; height: 5rem; margin-right: 1rem; background-image: url('/assets/up/profiles/blank profile.png');"></span>
+            <span>
+                <h4 class="sidenav__header__title">Lecturer</h4>
+                <span class="sidenav__header__sub-title"><%= lecturerDetails.firstname + ' ' + lecturerDetails.lastname %></span>
+            </span>
+        </h1>
+    </div>
+    <nav class="sidenav__nav">
+        <ul class="sidenav__nav__ul">
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Lecturer - Modules') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/l/modules" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#file"></use>
+                    </svg>
+                    <span>Modules</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Lecturer - Tests and exams') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/l/tests-exams" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#file"></use>
+                    </svg>
+                    <span>Tests and exams</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Lecturer - Grades') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/l/grades" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#file"></use>
+                    </svg>
+                    <span>Grades</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Lecturer - Tutorials') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/l/tutorials" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#file"></use>
+                    </svg>
+                    <span>Tutorials</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item">
+                <a href="/l/logout" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#sign-out"></use>
+                    </svg>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

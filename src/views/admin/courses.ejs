@@ -1,0 +1,85 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/admin') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/admin') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>Courses</h1>
+            </div>
+            <div class="card table">
+                <div class="card__header card__header--no-border card__header--search">
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="table__header">
+                    <ul class="table__header__row">
+                        <li class="table__header__row__item short">#</li>
+                        <li class="table__header__row__item">Name</li>
+                        <li class="table__header__row__item">Code</li>
+                        <li class="table__header__row__item">Modules</li>
+                        <li class="table__header__row__item last-cell">Register date</li>
+                    </ul>
+                </div>
+                <div class="table__body" id="registered-courses"></div>
+            </div>
+            <button class="btn btn--primary open-modal" style="margin-top: 2rem;" data-modal="new-course">New course</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal--closed flex--a-start flex--j-center" id="new-course-modal">
+    <form class="modal__main" id="new-course-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>New course.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="new-course">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="new-course-modal-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="course-name">Name</label>
+                    <input type="text" id="course-name" class="input-wrapper__input" placeholder="e.g. Intelligent Industrial System">
+                </div>
+                <div class="input-wrapper">
+                    <label for="course-code">Code</label>
+                    <input type="text" id="course-code" class="input-wrapper__input" placeholder="e.g. IIS30AT">
+                </div>
+            </div>
+            <div class="modules">
+                <input type="text" id="module-count" value="1" hidden>
+                <div class="input-wrapper" id="module-item-1">
+                    <label for="course-module-1" id="course-module-1-label">Module: 1</label>
+                    <div class="flex flex--a-center">
+                        <select id="course-module-1" class="input-wrapper__input modules__item" style="flex: 1;">
+                            <option value="select">Select</option>
+                        </select>
+                        <svg class="image--icon" style="margin-left: 1rem; fill: #b68c8c;" id="delete-item-1">
+                            <use href="#cancel"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary">Add course</button>
+            <button class="btn btn--cancel" type="button" id="add-module-item-btn">Add module</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const targetPage = 'admin-courses';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

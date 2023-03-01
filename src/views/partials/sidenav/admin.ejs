@@ -1,0 +1,87 @@
+<div class="sidenav">
+    <div class="sidenav__header">
+        <h1 class="flex flex--a-center">
+            <span class="image--round image--back" style="width: 5rem; height: 5rem; margin-right: 1rem; background-image: url('/assets/up/profiles/blank profile.png');"></span>
+            <span>
+                <h4 class="sidenav__header__title">Administration</h4>
+                <span class="sidenav__header__sub-title"><%= adminDetails.firstname + ' ' + adminDetails.lastname %></span>
+            </span>
+        </h1>
+    </div>
+    <nav class="sidenav__nav">
+        <ul class="sidenav__nav__ul">
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Admin - Semester') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/a/semester" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#file"></use>
+                    </svg>
+                    <span>Semester</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Admin - Funders') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/a/funders" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#dollar-sign"></use>
+                    </svg>
+                    <span>Funders</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Admin - Lecturers') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/a/lecturers" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#users"></use>
+                    </svg>
+                    <span>Lecturers</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Admin - Modules') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/a/modules" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#users"></use>
+                    </svg>
+                    <span>Modules</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Admin - Students') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/a/students" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#users"></use>
+                    </svg>
+                    <span>Students</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Admin - Tests') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/a/tests" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#file"></use>
+                    </svg>
+                    <span>Tests</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Admin - Grades') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/a/grades" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#file"></use>
+                    </svg>
+                    <span>Grades</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Admin - Goals') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/a/goals" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#file"></use>
+                    </svg>
+                    <span>Goals</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item">
+                <a href="/a/logout" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#sign-out"></use>
+                    </svg>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

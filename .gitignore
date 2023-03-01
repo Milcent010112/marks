@@ -1,0 +1,6 @@
+node_modules
+public/assets/less
+public/assets/downloads/*
+package-lock.json
+less-watch-compiler.config.json
+webpack.config.js

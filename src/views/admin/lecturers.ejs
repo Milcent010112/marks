@@ -1,0 +1,133 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/admin') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/admin') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>Lecturers</h1>
+            </div>
+            <div class="card table">
+                <div class="card__header card__header--no-border card__header--search">
+                    <input type="text" id="lecturers-search-box" placeholder="Search lecturers by first name, last name, or email address">
+                </div>
+                <div class="table__header">
+                    <ul class="table__header__row">
+                        <li class="table__header__row__item short">#</li>
+                        <li class="table__header__row__item">First name</li>
+                        <li class="table__header__row__item">Last name</li>
+                        <li class="table__header__row__item">Email address</li>
+                        <li class="table__header__row__item last-cell">Register date</li>
+                    </ul>
+                </div>
+                <div class="table__body" id="registered-lecturers"></div>
+                <div class="card__body" id="no-registered-lecturers" style="display: none;">
+                    <div class="empty">
+                        <h4>No registered lecturers</h4>
+                        <p>You have not added any lecturers yet :)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="modal modal--closed flex--a-start flex--j-center" id="new-lecturer-modal">
+    <form class="modal__main" id="new-lecturer-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>New lecturer.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="new-lecturer">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="new-lecturer-modal-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="lecturer-first-name">First name</label>
+                    <input type="text" id="lecturer-first-name" class="input-wrapper__input" placeholder="e.g. John">
+                </div>
+                <div class="input-wrapper">
+                    <label for="lecturer-last-name">Last name</label>
+                    <input type="text" id="lecturer-last-name" class="input-wrapper__input" placeholder="e.g. Miers">
+                </div>
+            </div>
+            <div class="input-wrapper">
+                <label for="lecturer-email">Email address</label>
+                <input type="text" id="lecturer-email" class="input-wrapper__input" placeholder="e.g. john@miers.com">
+            </div>
+            <div class="modules" style="margin-top: 1.6rem;">
+                <input type="text" id="module-count" value="1" hidden>
+                <div class="input-wrapper" id="module-item-1">
+                    <label for="lecturer-module-1" id="lecturer-module-1-label">Module: 1</label>
+                    <div class="flex flex--a-center">
+                        <select id="lecturer-module-1" class="input-wrapper__input modules__item" style="flex: 1;">
+                            <option value="select">Select</option>
+                        </select>
+                        <svg class="image--icon" style="margin-left: 1rem; fill: #b68c8c;" id="delete-item-1">
+                            <use href="#cancel"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary">Add lecturer</button>
+            <button class="btn btn--cancel" type="button" id="add-module-item-btn">Add module</button>
+        </div>
+    </form>
+</div> -->
+
+<!-- <div class="modal modal--closed flex--a-start flex--j-center" id="edit-lecturer-modal">
+    <form class="modal__main" id="edit-lecturer-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>edit lecturer.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="edit-lecturer">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="edit-lecturer-modal-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <input type="hidden" id="edit-lecturer-id">
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="edit-lecturer-first-name">First name</label>
+                    <input type="text" id="edit-lecturer-first-name" class="input-wrapper__input" placeholder="e.g. John">
+                </div>
+                <div class="input-wrapper">
+                    <label for="edit-lecturer-last-name">Last name</label>
+                    <input type="text" id="edit-lecturer-last-name" class="input-wrapper__input" placeholder="e.g. Miers">
+                </div>
+            </div>
+            <div class="input-wrapper">
+                <label for="edit-lecturer-email">Email address</label>
+                <input type="text" id="edit-lecturer-email" class="input-wrapper__input" placeholder="e.g. john@miers.com">
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary">Edit lecturer</button>
+        </div>
+    </form>
+</div> -->
+
+<script>
+    const targetPage = 'admin-lecturers';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

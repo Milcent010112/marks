@@ -1,0 +1,45 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/student') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/student') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>My Tests</h1>
+            </div>
+            <div class="card table">
+                <div class="card__header card__header--no-border card__header--search">
+                    <input type="text" id="tests-search-box" placeholder="Search tests by name...">
+                </div>
+                <div class="table__header">
+                    <ul class="table__header__row">
+                        <li class="table__header__row__item short">#</li>
+                        <li class="table__header__row__item">Module</li>
+                        <li class="table__header__row__item">Test</li>
+                        <li class="table__header__row__item">Grade</li>
+                        <li class="table__header__row__item">Weight</li>
+                        <li class="table__header__row__item last-cell">Date</li>
+                    </ul>
+                </div>
+                <div class="table__body" id="student-tests"></div>
+                <div class="card__body" id="no-student-tests" style="display: none;">
+                    <div class="empty">
+                        <h4>No student tests</h4>
+                        <p>Your lecturers have not uploaded any tests yet :)</p>
+                    </div>
+                </div>
+                <div id="test-average" style="margin-top: 2rem; padding: .6rem 1.4rem; border-top: 1px solid #eee; color: #727272;">
+                    <p>Average: <span id="average-grade">0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const targetPage = 'student-tests';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

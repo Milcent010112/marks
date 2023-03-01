@@ -1,0 +1,73 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/student') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/student') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>My Progress</h1>
+            </div>
+            <div class="card table">
+                <div class="card__header card__header--no-border card__header--search">
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="table__header">
+                    <ul class="table__header__row">
+                        <li class="table__header__row__item short">#</li>
+                        <li class="table__header__row__item">Module</li>
+                        <li class="table__header__row__item">Current weight</li>
+                        <li class="table__header__row__item">Remaining weight</li>
+                        <li class="table__header__row__item">Goal set</li>
+                        <li class="table__header__row__item">Goal reached</li>
+                        <li class="table__header__row__item last-cell">Goal remaining</li>
+                    </ul>
+                </div>
+                <div class="table__body" id="student-progress"></div>
+                <div class="card__body" id="no-student-progress" style="display: none;">
+                    <div class="empty">
+                        <h4>No student goals</h4>
+                        <p>You have not created any goals yet :)</p>
+                    </div>
+                </div>
+            </div>
+
+            <a id="progress-report-link" hidden download></a>
+
+            <button class="btn btn--primary" id="progress-report-btn" style="margin-top: 2rem;">Download report</button>
+
+            <!-- <h4 style="margin-top: 7rem;">Charts</h4>
+            <div class="chart flex" style="margin-right: 2rem;">
+                <p>Industry Exposure</p>
+                <div class="progress">
+                    <div class="progress__container pos--rel">
+                        <div class="progress__container__bar pos--abs pos--vertical" style="width: 70%;"></div>
+                
+                        <div class="progress__container__current-grade pos--abs flex flex--a-center"
+                            style="margin-left: calc(70% - 22.5px);">
+                            <div class="progress__container__current-grade__box">
+                                <span>70%</span>
+                            </div>
+                            <p>Current grade</p>
+                        </div>
+                
+                        <div class="progress__container__passing-grade pos--abs flex flex--a-center"
+                            style="margin-left: calc(30% - 22.5px);">
+                            <div class="progress__container__passing-grade__box">
+                                <span>50%</span>
+                            </div>
+                            <p>Passing grade</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+<script>
+    const targetPage = 'student-progress';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

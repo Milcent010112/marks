@@ -1,0 +1,41 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/admin') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/admin') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>Grades</h1>
+            </div>
+            <div class="card table">
+                <div class="card__header card__header--no-border card__header--search">
+                    <input type="text" id="grades-search-box" placeholder="Search by test name or student first name, last name or email">
+                </div>
+                <div class="table__header">
+                    <ul class="table__header__row">
+                        <li class="table__header__row__item short">#</li>
+                        <li class="table__header__row__item">Module</li>
+                        <li class="table__header__row__item">Test</li>
+                        <li class="table__header__row__item">Student</li>
+                        <li class="table__header__row__item last-cell">Grade</li>
+                    </ul>
+                </div>
+                <div class="table__body" id="student-grades"></div>
+                <div class="card__body" id="no-grades" style="display: none;">
+                    <div class="empty">
+                        <h4>No student grades</h4>
+                        <p>Grades have not yet been uploaded :)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const targetPage = 'admin-grades';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

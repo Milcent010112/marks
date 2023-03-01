@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <style>
+        html{
+            font-size: 40% !important;
+            padding: 5rem;
+        }
+
+        <%- css %>
+    </style>
+    
+    <title>Report of <%= studentDetails.firstname + ' ' + studentDetails.lastname %></title>
+</head>
+<body>
+    <div class="page-container">
+        <h1>Report</h1>
+        <h4>This report is for <%= studentDetails.firstname + ' ' + studentDetails.lastname %>, <%= studentDetails.studentNumber %></h4>
+        <div class="card table" style="margin-top: 2rem;">
+            <div class="table__header">
+                <ul class="table__header__row">
+                    <li class="table__header__row__item short">#</li>
+                    <li class="table__header__row__item">Module</li>
+                    <li class="table__header__row__item">Test</li>
+                    <li class="table__header__row__item last-cell">Grade</li>
+                </ul>
+            </div>
+            <div class="table__body" id="grades">
+                <% let formated='', averages = {}, average = 0 , count=1; grades.forEach(grade=> {
+                    averages[grade.testID.moduleID] = averages[grade.testID.moduleID] || { value: 0, count: 0 }
+                    formated += `
+                    <ul class="table__body__row" data-gradeid="${grade._id}">
+                        <li class="table__body__row__item short">${count}</li>
+                        <li class="table__body__row__item">${moduleCodes[count - 1].code}</li>
+                        <li class="table__body__row__item">${grade.testID.name}</li>
+                        <li class="table__body__row__item last-cell">${grade.actualGrade}</li>
+                    </ul>
+                    `;
+
+                    average += grade.actualGrade
+
+                    averages[grade.testID.moduleID].value += grade.actualGrade
+                    averages[grade.testID.moduleID].count++
+                    averages[grade.testID.moduleID].module = moduleCodes[count - 1].code
+        
+                    count++;
+                    });
+                    %>
+                    <%- formated %>
+                    <% for (const key in averages) { %>
+                        <p style="padding: 1.4rem 2rem; color: #585858;"><%= averages[key].module %> average grade is: <%= (averages[key].value / averages[key].count).toFixed(2) %> </p>
+                    <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

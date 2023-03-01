@@ -1,0 +1,80 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/lecturer') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/lecturer') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>Students</h1>
+            </div>
+            <div class="card table">
+                <div class="card__header card__header--no-border card__header--search">
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="table__header">
+                    <ul class="table__header__row">
+                        <li class="table__header__row__item short">#</li>
+                        <li class="table__header__row__item">First name</li>
+                        <li class="table__header__row__item">Last name</li>
+                        <li class="table__header__row__item">Student number</li>
+                        <li class="table__header__row__item">Email address</li>
+                        <li class="table__header__row__item last-cell">Register date</li>
+                    </ul>
+                </div>
+                <div class="table__body" id="assigned-students"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal--closed flex--a-start flex--j-center" id="new-student-grade-modal">
+    <form class="modal__main" id="new-student-grade-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>New student grade.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="new-student-grade">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="new-student-grade-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <input type="hidden" id="test-module-id">
+            <input type="hidden" id="student-number">
+            <div class="input-wrapper" style="margin-bottom: 1.6rem;">
+                <label for="test-module">Module</label>
+                <input type="text" id="test-module" class="input-wrapper__input" disabled>
+            </div>
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="test-grade">Grade</label>
+                    <input type="text" id="test-grade" class="input-wrapper__input" placeholder="e.g. 50">
+                </div>
+                <div class="input-wrapper">
+                    <label for="student-test" id="student-test-label">Test</label>
+                    <div class="flex flex--a-center">
+                        <select id="student-test" class="input-wrapper__input modules__item" style="flex: 1;">
+                            <option value="select">Select</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary">Add test grade</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const targetPage = 'lecturer-students';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

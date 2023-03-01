@@ -1,0 +1,43 @@
+<div class="admin-logger">
+    <div class="admin-logger__main pos--abs pos--horizontal">
+        <div class="admin-logger__title">
+            <h1>Lecturer.</h1>
+            <p>Management panel for students</p>
+        </div>
+        <div class="error-container" id="lecturer-sign-in-error" style="margin-bottom: 1.6rem;">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <form class="card" id="lecturer-sign-in-form">
+            <div class="card__header card__header--no-border">
+                <h1>Sign in.</h1>
+            </div>
+            <div class="error-container error-container--pad" id="lecturer-sign-in-error">
+                <p class="error-container__p">
+                    <span class="error-container__p__exclamation">Oops.</span>
+                    <span class="error-container__p__text"></span>
+                </p>
+            </div>
+            <div class="card__body">
+                <div class="input-wrapper">
+                    <label for="lecturer-email">Email address</label>
+                    <input type="email" id="lecturer-email" class="input-wrapper__input" placeholder="username@name.com">
+                </div>
+                <div class="input-wrapper">
+                    <label for="lecturer-password">Password</label>
+                    <input type="password" id="lecturer-password" class="input-wrapper__input" placeholder="Password123">
+                </div>
+                <button class="btn btn--primary">Sign in.</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const targetPage = 'lecturer-sign-in';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

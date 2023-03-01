@@ -1,0 +1,52 @@
+<div class="admin-logger image--back" style="background-image: url('/assets/backgrounds/background-1.jpg'); height: 100vh;">
+    <div class="admin-logger__main pos--abs pos--horizontal">
+        <div class="admin-logger__title">
+            <h1>Welcome.</h1>
+            <p>Academic Goal Monitoring.</p>
+        </div>
+        <form class="card" id="sign-in-form">
+            <div class="card__header card__header--no-border">
+                <h1>Sign in.</h1>
+            </div>
+            <div class="error-container error-container--pad" id="sign-in-error">
+                <p class="error-container__p">
+                    <span class="error-container__p__exclamation">Oops.</span>
+                    <span class="error-container__p__text"></span>
+                </p>
+            </div>
+            <div class="card__body">
+                <div class="input-wrapper">
+                    <label for="email-address">Email address</label>
+                    <input type="email" id="email-address" class="input-wrapper__input" placeholder="username@name.com">
+                </div>
+                <div class="input-wrapper">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="input-wrapper__input" placeholder="Password123">
+                </div>
+
+                <div class="flex flex--j-space-around" style="margin-bottom: 2rem;">
+                    <span class="flex flex--a-center"><input type="radio" name="login-type" style="margin-right: .7rem;" value="student" id="radio-1" checked> <label for="radio-1">Student</label></span>
+                    <span class="flex flex--a-center"><input type="radio" name="login-type" style="margin-right: .7rem;" value="admin" id="radio-2"> <label for="radio-2">Admin</label></span>
+                    <span class="flex flex--a-center"><input type="radio" name="login-type" style="margin-right: .7rem;" value="lecturer" id="radio-3"> <label for="radio-3">Lecturer</label></span>
+                    <!-- <span class="flex flex--a-center"><input type="radio" name="login-type" style="margin-right: .7rem;" value="secretary" id="radio-4"> <label for="radio-4">Secretary</label></span> -->
+                </div>
+
+                <div class="flex flex--j-space-between">
+                    <button class="btn btn--primary">Sign in.</button>
+                    <button type="button" class="btn"><a href="/sign-up">Sign up.</a></button>
+                </div>
+            </div>
+        </form>
+        <!-- <div class="flex flex--j-space-around" style="margin-top: 2rem;">
+            <p><a href="/l/sign-up">Lecturer sign up</a></p>
+            <p><a href="/s/sign-up">Student sign up</a></p>
+        </div> -->
+    </div>
+</div>
+
+<script>
+    const targetPage = 'sign-in';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

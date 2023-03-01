@@ -1,0 +1,154 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/admin') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/admin') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>Students</h1>
+            </div>
+            <div class="card table">
+                <div class="card__header card__header--no-border card__header--search">
+                    <input type="text" id="students-search-box" placeholder="Search students by first name, last name, email, or student number">
+                </div>
+                <div class="table__header">
+                    <ul class="table__header__row">
+                        <li class="table__header__row__item short">#</li>
+                        <li class="table__header__row__item">First name</li>
+                        <li class="table__header__row__item">Last name</li>
+                        <li class="table__header__row__item">Student number</li>
+                        <li class="table__header__row__item">Email address</li>
+                        <li class="table__header__row__item last-cell">Register date</li>
+                    </ul>
+                </div>
+                <div class="table__body" id="registered-students"></div>
+                <div class="card__body" id="no-registered-students" style="display: none;">
+                    <div class="empty">
+                        <h4>No registered students</h4>
+                        <p>You have not added any students yet :)</p>
+                    </div>
+                </div>
+            </div>
+            <a id="student-report-link" download hidden></a>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="modal modal--closed modal--flex flex--a-start flex--j-center" id="new-student-modal">
+    <form class="modal__main" id="new-student-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>New student.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="new-student">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="new-student-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="student-first-name">First name</label>
+                    <input type="text" id="student-first-name" class="input-wrapper__input" placeholder="e.g. John">
+                </div>
+                <div class="input-wrapper">
+                    <label for="student-last-name">Last name</label>
+                    <input type="text" id="student-last-name" class="input-wrapper__input" placeholder="e.g. Miers">
+                </div>
+            </div>
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="student-number">Student number</label>
+                    <input type="text" id="student-number" class="input-wrapper__input" placeholder="e.g. 12345678">
+                </div>
+                <div class="input-wrapper">
+                    <label for="student-email">Email address</label>
+                    <input type="email" id="student-email" class="input-wrapper__input" placeholder="e.g. john@mier.com">
+                </div>
+            </div>
+            <div class="modules">
+                <input type="text" id="module-count" value="1" hidden>
+                <div class="input-wrapper" id="module-item-1">
+                    <label for="student-module-1" id="student-module-1-label">Module: 1</label>
+                    <div class="flex flex--a-center">
+                        <select id="student-module-1" class="input-wrapper__input modules__item" style="flex: 1;">
+                            <option value="select">Select</option>
+                        </select>
+                        <svg class="image--icon" style="margin-left: 1rem; fill: #b68c8c;" id="delete-item-1">
+                            <use href="#cancel"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="input-wrapper" style="margin-top: 1.6rem;">
+                <label for="student-funder">Funder</label>
+                <select id="student-funder" class="input-wrapper__input">
+                    <option value="none">None</option>
+                </select>
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary">Add student</button>
+            <button class="btn btn--cancel" type="button" id="add-module-item-btn">Add module</button>
+        </div>
+    </form>
+</div> -->
+
+<!-- <div class="modal modal--closed modal--flex flex--a-start flex--j-center" id="edit-student-modal">
+    <form class="modal__main" id="edit-student-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>Edit student.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="edit-student">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="edit-student-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <input type="hidden" id="student-update-id">
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="edit-student-first-name">First name</label>
+                    <input type="text" id="edit-student-first-name" class="input-wrapper__input" placeholder="e.g. John">
+                </div>
+                <div class="input-wrapper">
+                    <label for="edit-student-last-name">Last name</label>
+                    <input type="text" id="edit-student-last-name" class="input-wrapper__input" placeholder="e.g. Miers">
+                </div>
+            </div>
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="edit-student-number">Student number</label>
+                    <input type="text" id="edit-student-number" class="input-wrapper__input" placeholder="e.g. 12345678" disabled>
+                </div>
+                <div class="input-wrapper">
+                    <label for="edit-student-email">Email address</label>
+                    <input type="email" id="edit-student-email" class="input-wrapper__input" placeholder="e.g. john@mier.com">
+                </div>
+            </div>
+            <div class="modules"></div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary">Edit student</button>
+        </div>
+    </form>
+</div> -->
+
+<script>
+    const targetPage = 'admin-students';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

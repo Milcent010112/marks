@@ -1,0 +1,55 @@
+<div class="sidenav">
+    <div class="sidenav__header">
+        <h1 class="flex flex--a-center">
+            <span class="image--round image--back" style="width: 5rem; height: 5rem; margin-right: 1rem; background-image: url('/assets/up/profiles/<%= studentDetails.photo %>');"></span>
+            <span>
+                <h4 class="sidenav__header__title">Student</h4>
+                <span class="sidenav__header__sub-title"><%= studentDetails.firstname + ' ' + studentDetails.lastname %></span>
+            </span>
+        </h1>
+    </div>
+    <nav class="sidenav__nav">
+        <ul class="sidenav__nav__ul">
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Student - Tests') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/s/tests" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#file"></use>
+                    </svg>
+                    <span>Tests</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Student - Goals') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/s/goals" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#file"></use>
+                    </svg>
+                    <span>Goals</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Student - Progress') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/s/progress" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#file"></use>
+                    </svg>
+                    <span>Progress</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item <% if (page.title == 'Student - Profile') { %> sidenav__nav__ul__item--active <% } %>">
+                <a href="/s/profile" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#file"></use>
+                    </svg>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="sidenav__nav__ul__item">
+                <a href="/s/logout" class="flex flex--a-center">
+                    <svg class="image--icon">
+                        <use href="#sign-out"></use>
+                    </svg>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

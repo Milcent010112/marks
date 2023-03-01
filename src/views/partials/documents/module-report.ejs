@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    
+    <style>
+        html{
+            font-size: 40% !important;
+            padding: 5rem;
+        }
+
+        <%- css %>
+    </style>
+    
+    <title>Report of <%= moduleDetails.name %></title>
+</head>
+<body>
+    <div class="page-container">
+        <h1>Report</h1>
+        <p>List of students who set a goal for:</p>
+        <h4><%= moduleDetails.name + '(' + moduleDetails.code + ')' %></h4>
+        <div class="card table" style="margin-top: 2rem;">
+            <div class="table__header">
+                <ul class="table__header__row">
+                    <li class="table__header__row__item">Student number</li>
+                    <li class="table__header__row__item">First name</li>
+                    <li class="table__header__row__item">Last name</li>
+                    <li class="table__header__row__item">Grade</li>
+                    <li class="table__header__row__item">Goal</li>
+                    <li class="table__header__row__item last-cell">Goal reached (yes/no)</li>
+                </ul>
+            </div>
+            <div class="table__body" id="grades">
+                <% students.forEach(student => { %>
+                    <ul class="table__body__row">
+                        <li class="table__body__row__item"><%= student.student.no %></li>
+                        <li class="table__body__row__item"><%= student.student.firstname %></li>
+                        <li class="table__body__row__item"><%= student.student.lastname %></li>
+                        <li class="table__body__row__item"><%= student.moduleGrade %></li>
+                        <li class="table__body__row__item"><%= student.moduleGoal %></li>
+                        <li class="table__body__row__item last-cell"><%= student.hasReached ? 'Yes' : 'False' %></li>
+                    </ul>
+                <% }); %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

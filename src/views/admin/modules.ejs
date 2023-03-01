@@ -1,0 +1,111 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/admin') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/admin') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>Modules</h1>
+            </div>
+            <div class="card table">
+                <div class="card__header card__header--no-border card__header--search">
+                    <input type="text" id="modules-search-box"  placeholder="Search modules by name or code">
+                </div>
+                <div class="table__header">
+                    <ul class="table__header__row">
+                        <li class="table__header__row__item short">#</li>
+                        <li class="table__header__row__item">Name</li>
+                        <li class="table__header__row__item">Code</li>
+                        <li class="table__header__row__item last-cell">Register date</li>
+                    </ul>
+                </div>
+                <div class="table__body" id="registered-modules"></div>
+                <div class="card__body" id="no-registered-modules" style="display: none;">
+                    <div class="empty">
+                        <h4>No registered modules</h4>
+                        <p>You have not added any modules yet :)</p>
+                    </div>
+                </div>
+            </div>
+            <a id="report-link" hidden download></a>
+            <button class="btn btn--primary open-modal" style="margin-top: 2rem;" data-modal="new-module">New module</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal--closed flex--a-start flex--j-center" id="edit-module-modal">
+    <form class="modal__main" id="edit-module-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>Edit module.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="edit-module">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="edit-module-modal-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <input type="hidden" id="edit-module-id">
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="edit-module-name">Name</label>
+                    <input type="text" id="edit-module-name" class="input-wrapper__input" placeholder="e.g. Development Systems">
+                </div>
+                <div class="input-wrapper">
+                    <label for="edit-module-code">Code</label>
+                    <input type="text" id="edit-module-code" class="input-wrapper__input" placeholder="e.g. DSO">
+                </div>
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary">Edit module</button>
+        </div>
+    </form>
+</div>
+
+<div class="modal modal--closed flex--a-start flex--j-center" id="new-module-modal">
+    <form class="modal__main" id="new-module-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>New module.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="new-module">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="new-module-modal-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="module-name">Name</label>
+                    <input type="text" id="module-name" class="input-wrapper__input" placeholder="e.g. Development Systems">
+                </div>
+                <div class="input-wrapper">
+                    <label for="module-code">Code</label>
+                    <input type="text" id="module-code" class="input-wrapper__input" placeholder="e.g. DSO">
+                </div>
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary">Add module</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const targetPage = 'admin-modules';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

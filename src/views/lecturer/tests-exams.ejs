@@ -1,0 +1,85 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/lecturer') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/lecturer') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>Tests and exams</h1>
+            </div>
+            <div class="card table">
+                <div class="card__header card__header--no-border card__header--search">
+                    <input type="text" id="tests-search-box" placeholder="Search tests by name">
+                </div>
+                <div class="table__header">
+                    <ul class="table__header__row">
+                        <li class="table__header__row__item short">#</li>
+                        <li class="table__header__row__item">Module</li>
+                        <li class="table__header__row__item">Test</li>
+                        <li class="table__header__row__item">Weight</li>
+                        <li class="table__header__row__item last-cell">Status</li>
+                    </ul>
+                </div>
+                <div class="table__body" id="tests-and-exams"></div>
+                <div class="card__body" id="no-tests-and-exams" style="display: none;">
+                    <div class="empty">
+                        <h4>No tests or exams</h4>
+                        <p>You have not created any tests or exams yet :)</p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn--primary open-modal" style="margin-top: 2rem;" data-modal="new-test">New test</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal--closed flex--a-start flex--j-center" id="new-test-modal">
+    <form class="modal__main" id="new-test-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>New test.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="new-test">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="new-test-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <div class="input-wrapper">
+                <label for="test-name">Name</label>
+                <select class="input-wrapper__input" id="test-name">
+                    <option value="formative 1">Formative 1</option>
+                    <option value="formative 2">Formative 2</option>
+                    <option value="semester work">Semester work</option>
+                    <option value="summative">Summative</option>
+                </select>
+            </div>
+            <div class="modules" style="margin-top: 1.6rem;">
+                <div class="input-wrapper" id="module-item-1">
+                    <label for="test-module" id="test-module-label">Module</label>
+                    <div class="flex flex--a-center">
+                        <select id="test-module" class="input-wrapper__input modules__item" style="flex: 1;">
+                            <option value="select">Select</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary" id="new-test-form-submit">Add test</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const targetPage = 'lecturer-tests-and-exams';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>

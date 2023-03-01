@@ -1,0 +1,111 @@
+<div class="page-container">
+    <%- include('../partials/sidenav/admin') %>
+
+    <div class="page-container__main page-container__main--nav-closed">
+        <%- include('../partials/header/admin') %>
+
+        <div class="page-container__main__padded">
+            <div class="page-container__main__padded__page-title">
+                <h1>Funders</h1>
+            </div>
+            <div class="card table">
+                <div class="card__header card__header--no-border card__header--search">
+                    <input type="text" id="funders-search-box" placeholder="Search funders by name or email">
+                </div>
+                <div class="table__header">
+                    <ul class="table__header__row">
+                        <li class="table__header__row__item short">#</li>
+                        <li class="table__header__row__item">Name</li>
+                        <li class="table__header__row__item">Email address</li>
+                        <li class="table__header__row__item last-cell">Register date</li>
+                    </ul>
+                </div>
+                <div class="table__body" id="registered-funders"></div>
+                <div class="card__body" id="no-funders" style="display: none;">
+                    <div class="empty">
+                        <h4>No registered funders</h4>
+                        <p>You have not added any funders yet :)</p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn--primary open-modal" style="margin-top: 2rem;" data-modal="new-funder">New funder</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal--closed modal--flex flex--a-start flex--j-center" id="new-funder-modal">
+    <form class="modal__main" id="new-funder-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>New funder.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="new-funder">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="new-funder-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="funder-name">Funder name</label>
+                    <input type="text" id="funder-name" class="input-wrapper__input" placeholder="e.g. NSFAS">
+                </div>
+                <div class="input-wrapper">
+                    <label for="funder-email">Funder email address</label>
+                    <input type="email" id="funder-email" class="input-wrapper__input" placeholder="e.g. updates@nsfas.com">
+                </div>
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary">Add funder</button>
+        </div>
+    </form>
+</div>
+
+<div class="modal modal--closed modal--flex flex--a-start flex--j-center" id="edit-funder-modal">
+    <form class="modal__main" id="edit-funder-form">
+        <div class="modal__main__header flex flex--a-center flex--j-space-between">
+            <div>
+                <h1>Update funder.</h1>
+            </div>
+            <svg class="icon svg close-modal" data-modal="edit-funder">
+                <use href="#cross"></use>
+            </svg>
+        </div>
+        <div class="error-container error-container--pad" id="edit-funder-error">
+            <p class="error-container__p">
+                <span class="error-container__p__exclamation">Oops.</span>
+                <span class="error-container__p__text"></span>
+            </p>
+        </div>
+        <div class="modal__main__body modal__main__body--short" style="padding: 1.4rem 2rem;">
+            <input type="hidden" id="funder-id">
+
+            <div class="twin-inputs flex flex--j-space-between">
+                <div class="input-wrapper">
+                    <label for="edit-funder-name">Funder name</label>
+                    <input type="text" id="edit-funder-name" class="input-wrapper__input" placeholder="e.g. NSFAS">
+                </div>
+                <div class="input-wrapper">
+                    <label for="edit-funder-email">Funder email address</label>
+                    <input type="email" id="edit-funder-email" class="input-wrapper__input" placeholder="e.g. updates@nsfas.com">
+                </div>
+            </div>
+        </div>
+        <div class="modal__main__footer flex">
+            <button class="btn btn--primary">Update funder</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const targetPage = 'admin-funders';
+</script>
+
+<script src="/assets/js/dist/lib/jquery/jquery.js"></script>
+<script src="/assets/js/dist/app.bundle.js"></script>
